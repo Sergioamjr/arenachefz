@@ -14,7 +14,7 @@ export default function Home() {
             <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
           </h1>
 
-          <nav>
+          <nav className="hidden md:block">
             <ul className="flex justify-between items-center py-4 gap-5">
               <li>
                 <a href="/" className="text-white">
@@ -61,7 +61,7 @@ export default function Home() {
       </div>
       <div className="max-w-[1024px] m-auto px-4 py-20">
         <h2 className="text-3xl text-center mb-10">Serviços</h2>
-        <div className="grid grid-cols-3 gap-4 gap-y-11">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gap-y-11">
           <div className="flex flex-col items-center">
             <Image width={100} height={100} src="/assets/beach.png" alt="banner" />
             <p className="mt-1 text-theme-gray border-b-2">Beach Tennis</p>
@@ -92,7 +92,7 @@ export default function Home() {
       <div className="bg-theme-gray">
         <div className="max-w-[1024px]  m-auto px-4 py-20">
           <h2 className="text-3xl text-center mb-10 text-white">Restaurantes</h2>
-          <div className="grid grid-cols-3 gap-4 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
             <div className="flex flex-col border_ _p-2 border-white_">
               <Image className="rounded-2xl" width={400} height={100} src="/assets/sushi.jpg" alt="banner" />
               <div className="flex justify-between mb-4 mt-4">
