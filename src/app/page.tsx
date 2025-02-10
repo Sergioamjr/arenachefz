@@ -45,11 +45,11 @@ export default function Home() {
             </ul>
           </nav>
           <div className="flex gap-5">
-            <a href="/login" className="text-[0px]">
+            <a target="_blank" href="https://www.instagram.com/arenachefz/" className="text-[0px]">
               Instagram
               <Image width={30} height={30} alt="instagram" src={'/assets/instagram.png'} />
             </a>
-            <a href="/login" className="text-[0px]">
+            <a href="/" className="text-[0px]">
               Whatsapp
               <Image width={30} height={30} alt="whatsapp" src={'/assets/whatsapp.png'} />
             </a>
@@ -178,11 +178,11 @@ export default function Home() {
             </ul>
           </nav>
           <div className="flex gap-5">
-            <a href="/login" className="text-[0px]">
+            <a target="_blank" href="https://www.instagram.com/arenachefz/" className="text-[0px]">
               Instagram
               <Image width={30} height={30} alt="instagram" src={'/assets/instagram.png'} />
             </a>
-            <a href="/login" className="text-[0px]">
+            <a href="/" className="text-[0px]">
               Whatsapp
               <Image width={30} height={30} alt="whatsapp" src={'/assets/whatsapp.png'} />
             </a>
