@@ -1,76 +1,194 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import Image from 'next/image';
-
-import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a href="https://vercel.com?utm_source=typescript-nextjs-starter" target="_blank" rel="noopener noreferrer">
-            By{' '}
-            <Image src="/vercel.svg" alt="Vercel Logo" className={styles.vercelLogo} width={100} height={24} priority />
-          </a>
+    <>
+      <header
+        className="
+          bg-theme-gray w-full"
+      >
+        <div className="max-w-[1024px] pr-4 py-1 pl-4 flex items-center m-auto justify-between">
+          <h1 className="text-[0px]">
+            Arena Chefz
+            <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
+          </h1>
+
+          <nav>
+            <ul className="flex justify-between items-center py-4 gap-5">
+              <li>
+                <a href="/" className="text-white">
+                  Início
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Restaurantes
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Serviços
+                </a>
+              </li>
+
+              <li>
+                <a href="/" className="text-white">
+                  Beach Tennis
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Localização
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="flex gap-5">
+            <a href="/login" className="text-[0px]">
+              Instagram
+              <Image width={30} height={30} alt="instagram" src={'/assets/instagram.png'} />
+            </a>
+            <a href="/login" className="text-[0px]">
+              Whatsapp
+              <Image width={30} height={30} alt="whatsapp" src={'/assets/whatsapp.png'} />
+            </a>
+          </div>
+        </div>
+      </header>
+      <div>
+        <Image layout="responsive" width={1024} height={100} src="/assets/food.jpg" alt="banner" />
+      </div>
+      <div className="max-w-[1024px] m-auto px-4 py-20">
+        <h2 className="text-3xl text-center mb-10">Serviços</h2>
+        <div className="grid grid-cols-3 gap-4 gap-y-11">
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/beach.png" alt="banner" />
+            <p className="mt-1 text-theme-gray border-b-2">Beach Tennis</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/festival.png" alt="banner" />
+            <p>Música</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/fast-food.png" alt="banner" />
+            <p>Restaurantes</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/playtime.png" alt="banner" />
+            <p>Espaço Kids</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/parking-area.png" alt="banner" />
+            <p>Estacionamento</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image width={100} height={100} src="/assets/veterinary.png" alt="banner" />
+            <p>Pet Friendly</p>
+          </div>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image className={styles.logo} src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
+      <div className="bg-theme-gray">
+        <div className="max-w-[1024px]  m-auto px-4 py-20">
+          <h2 className="text-3xl text-center mb-10 text-white">Restaurantes</h2>
+          <div className="grid grid-cols-3 gap-4 ">
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image className="rounded-2xl" width={400} height={100} src="/assets/sushi.jpg" alt="banner" />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Sushi</p>
+                <p className="mt-1 text-white text-left">@sushi</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image className="rounded-2xl" width={400} height={100} src="/assets/hamburger.jpg" alt="banner" />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Pizza</p>
+                <p className="mt-1 text-white text-left">@restauranttal</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image className="rounded-2xl" width={400} height={100} src="/assets/pizza.jpg" alt="banner" />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Hamburgueria</p>
+                <p className="mt-1 text-white text-left">@restauranttal</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=typescript-nextjs-starter"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=typescript-nextjs-starter"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=typescript-nextjs-starter"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=typescript-nextjs-starter"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
-        </a>
+      <div className="relative max-w-[1024px]_ m-auto_ _px-4 py-20_">
+        <h2 className="text-3xl text-center mb-10 absolute left-0 right-0 top-10 bg-white p-2 inline-table m-auto">
+          Localização
+        </h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.8616320336005!2d-46.23020768070375!3d-23.537478589516894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce770042c9e431%3A0xa0566fd96164ce81!2sArena%20Chefz!5e0!3m2!1sen!2sbr!4v1739229845373!5m2!1sen!2sbr"
+          width="100%"
+          height="750"
+          // style="border:0;"
+          // allowFullscreen=""
+          loading="lazy"
+          // referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-    </main>
+      <footer className="bg-theme-gray w-full">
+        <div className="max-w-[1024px] pr-4 py-1 pl-4 flex items-center m-auto justify-between">
+          <h1 className="text-[0px]">
+            Arena Chefz
+            <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
+          </h1>
+
+          <nav>
+            <ul className="flex justify-between items-center py-4 gap-5">
+              <li>
+                <a href="/" className="text-white">
+                  Início
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Restaurantes
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Serviços
+                </a>
+              </li>
+
+              <li>
+                <a href="/" className="text-white">
+                  Beach Tennis
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-white">
+                  Localização
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="flex gap-5">
+            <a href="/login" className="text-[0px]">
+              Instagram
+              <Image width={30} height={30} alt="instagram" src={'/assets/instagram.png'} />
+            </a>
+            <a href="/login" className="text-[0px]">
+              Whatsapp
+              <Image width={30} height={30} alt="whatsapp" src={'/assets/whatsapp.png'} />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
