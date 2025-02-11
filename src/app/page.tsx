@@ -56,8 +56,12 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <div>
-        <Image layout="responsive" width={1024} height={100} src="/assets/food.jpg" alt="banner" />
+      <div className="relative banner h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[800px] overflow-hidden">
+        {/* <Image layout="responsive" width={1024} height={100} src="/assets/food.jpg" alt="banner" /> */}
+        <div className="max-w-[1024px] m-auto px-4 py-20 flex items-end_ h-full flex-col justify-end z-10 relative">
+          <h3 className="text-white mb-2.5 text-4xl">Espaço Arena Chefz</h3>
+          <p className="text-white">Esporte, comida, cultura, lazer; em um só lugar</p>
+        </div>
       </div>
       <div className="max-w-[1024px] m-auto px-4 py-20">
         <h2 className="text-3xl text-center mb-10">Serviços</h2>
@@ -94,7 +98,14 @@ export default function Home() {
           <h2 className="text-3xl text-center mb-10 text-white">Restaurantes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
             <div className="flex flex-col border_ _p-2 border-white_">
-              <Image className="rounded-2xl" width={400} height={100} src="/assets/sushi.jpg" alt="banner" />
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/sushi.jpg"
+                alt="banner"
+              />
               <div className="flex justify-between mb-4 mt-4">
                 <p className="mt-1 text-white text-left">Sushi</p>
                 <p className="mt-1 text-white text-left">@sushi</p>
@@ -104,7 +115,14 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col border_ _p-2 border-white_">
-              <Image className="rounded-2xl" width={400} height={100} src="/assets/hamburger.jpg" alt="banner" />
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/hamburger.jpg"
+                alt="banner"
+              />
               <div className="flex justify-between mb-4 mt-4">
                 <p className="mt-1 text-white text-left">Pizza</p>
                 <p className="mt-1 text-white text-left">@restauranttal</p>
@@ -114,7 +132,65 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col border_ _p-2 border-white_">
-              <Image className="rounded-2xl" width={400} height={100} src="/assets/pizza.jpg" alt="banner" />
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/pizza.jpg"
+                alt="banner"
+              />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Hamburgueria</p>
+                <p className="mt-1 text-white text-left">@restauranttal</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/sushi.jpg"
+                alt="banner"
+              />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Sushi</p>
+                <p className="mt-1 text-white text-left">@sushi</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/hamburger.jpg"
+                alt="banner"
+              />
+              <div className="flex justify-between mb-4 mt-4">
+                <p className="mt-1 text-white text-left">Pizza</p>
+                <p className="mt-1 text-white text-left">@restauranttal</p>
+              </div>
+              <a href="/" className="text-white bg-gray-600 p-2 rounded-md text-center">
+                Ver Cardápio
+              </a>
+            </div>
+            <div className="flex flex-col border_ _p-2 border-white_">
+              <Image
+                layout="responsive"
+                className="rounded-2xl"
+                width={400}
+                height={100}
+                src="/assets/pizza.jpg"
+                alt="banner"
+              />
               <div className="flex justify-between mb-4 mt-4">
                 <p className="mt-1 text-white text-left">Hamburgueria</p>
                 <p className="mt-1 text-white text-left">@restauranttal</p>
@@ -126,7 +202,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2">
         <div className="bg-red-500 flex justify-end _pl-4">
           <Image layout="responsive" width={400} height={400} src="/assets/tennis.png" alt="banner" />
         </div>
