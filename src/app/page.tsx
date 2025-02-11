@@ -126,6 +126,35 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="grid grid-cols-2">
+        <div className="bg-red-500 flex justify-end _pl-4">
+          <Image layout="responsive" width={400} height={400} src="/assets/tennis.png" alt="banner" />
+        </div>
+        <div className="bg-blue-500_">
+          <div
+            className="bg-yellow-500_
+          max-w-[512px] items-start
+          w-full py-11 pl-4
+          "
+          >
+            <h2 className="text-3xl text-center_ mb-10 text-white_">Beach Tennis</h2>
+            <p className="mb-2.5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
+              viverra sed. Proin sollicitudin metus purus.
+            </p>
+
+            <p className="mb-2.5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
+              viverra sed. Proin sollicitudin metus purus.
+            </p>
+
+            <p>
+              Mauris luctus lorem eleifend aliquam pulvinar. Suspendisse accumsan pellentesque ex, ut auctor elit
+              aliquam sed. Nunc a ante vitae sem tristique tincidunt.
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="relative max-w-[1024px]_ m-auto_ _px-4 py-20_">
         <h2 className="text-3xl text-center mb-10 absolute left-0 right-0 top-10 bg-white p-2 inline-table m-auto">
           Localização
@@ -147,7 +176,7 @@ export default function Home() {
             <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
           </h1>
 
-          <nav>
+          <nav className="hidden md:block">
             <ul className="flex justify-between items-center py-4 gap-5">
               <li>
                 <a href="/" className="text-white">
