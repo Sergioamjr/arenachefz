@@ -17,7 +17,7 @@ const cats = [
   { label: 'Vinho', color: '#ce0000' },
 ];
 
-export const Icon = ({ background, title, subtitle }: { background: string; title: string; subtitle?: string }) => {
+const Icon = ({ background, title, subtitle }: { background: string; title: string; subtitle?: string }) => {
   return (
     <div className="flex flex-col items-center">
       <Image className="opacity-60 mb-4" width={100} height={100} src={background} alt="banner" />
@@ -161,20 +161,20 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-4 h-full">
               <SummaryCard
                 background="/assets/beachplayer.jpg"
-                // subtitle="Comida de qualidade"
+                subtitle="Pratique esporte"
                 title="Beach Tennis"
                 className="h-[200px] md:h-full"
               />
               <SummaryCard
                 background="/assets/concert.jpg"
-                // subtitle="Comida de qualidade"
+                subtitle="Veja seus artistas"
                 title="Cultura"
                 className="h-[200px] md:h-full"
               />
             </div>
             <SummaryCard
               background="/assets/friends.jpg"
-              // subtitle="Comida de qualidade"
+              subtitle="Se divirta com seus amigos"
               title="Happy Hour"
               className="h-[200px] md:h-full"
             />
