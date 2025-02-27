@@ -205,7 +205,7 @@ export default function Home() {
               />
               <SummaryCard
                 background="/assets/concert.jpg"
-                subtitle="Veja seus artistas"
+                subtitle="Veja seus artistas favoritos"
                 title="Cultura"
                 className="h-[200px] md:h-full"
               />
