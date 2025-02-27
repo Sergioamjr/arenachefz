@@ -1,21 +1,35 @@
+'use client';
+
 /* eslint-disable @next/next/no-html-link-for-pages */
 import cx from 'classnames';
 import Image from 'next/image';
+import { useState } from 'react';
 
-const cats = [
-  { label: 'Pizza', color: '#ce0000' },
-  { label: 'Massa', color: '#ce0000' },
-  { label: 'Italiana', color: '#ce0000' },
-  { label: 'Árabe', color: '#ce0000' },
-  { label: 'Hamburguer', color: '#ce0000' },
-  { label: 'Sushi', color: '#ce0000' },
-  { label: 'Poke', color: '#ce0000' },
-  { label: 'Mexicano', color: '#ce0000' },
-  { label: 'Açaí', color: '#ce0000' },
-  { label: 'Sorvete', color: '#ce0000' },
-  { label: 'Sobremesa', color: '#ce0000' },
-  { label: 'Vinho', color: '#ce0000' },
-];
+// const Form = () => {
+//   return (
+//     <form className="flex flex-wrap">
+//       <input className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4" type="text" placeholder="Nome" />
+//       <input
+//         className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
+//         type="text"
+//         placeholder="E-mail"
+//       />
+//       <input
+//         className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
+//         type="text"
+//         placeholder="Telefone"
+//       />
+//       <textarea
+//         className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
+//         placeholder="Mensagem"
+//         rows={4}
+//       />
+//       <button className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer">
+//         Enviar
+//       </button>
+//     </form>
+//   );
+// };
 
 const Icon = ({ background, title, subtitle }: { background: string; title: string; subtitle?: string }) => {
   return (
@@ -52,7 +66,7 @@ const SummaryCard = ({
 const RestaurantCard = ({
   image,
   title,
-  categories,
+  // categories,
   instagram,
 }: {
   image: string;
@@ -68,13 +82,7 @@ const RestaurantCard = ({
           <p className="mt-1 text-2xl font-semibold text-left ">{title}</p>
           <p className="mt-1 text-left">@{instagram}</p>
         </div>
-        <div className="flex gap-1">
-          {categories.map((c, i) => (
-            <p key={i} className="bg-[#ce0000] text-white rounded p-1 text-[14px]">
-              {c}
-            </p>
-          ))}
-        </div>
+
         <div className="flex justify-between">
           <p className="mt-1 text-white text-left">@sushi</p>
         </div>
@@ -87,18 +95,48 @@ const RestaurantCard = ({
 };
 
 export default function Home() {
+  const [isOpen, setisOpen] = useState(false);
   return (
     <>
+      <div className="hero" />
       <header
         className="
-          bg-theme-gray_ w-full hero"
+          bg-theme-gray_ w-full hero_"
       >
         <div className="max-w-[1024px] pr-4 py-1 pl-4 flex items-center m-auto justify-between">
-          <h1 className="text-[0px]">
+          <h1 className="text-[0px] relative -top-2 -left-2">
             Arena Chefz
-            <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
+            <Image width={150} height={120} alt="logo" src={'/assets/logo.png'} />
           </h1>
-
+          <div
+            className={cx('relative z-20 md:hidden h-[40px] overflow-hidden', {
+              'h-auto overflow-visible': isOpen,
+            })}
+          >
+            <button
+              onClick={() => setisOpen((prev) => !prev)}
+              className="md:hidden cursor-pointer hover:bg-gray-200 transition-all p-1 rounded"
+            >
+              <Image width={30} height={30} alt="menu" src={isOpen ? '/assets/close.png' : '/assets/menu.png'} />
+            </button>
+            <nav className="flex right-0 flex-col absolute text-right bg-white z-20 p-2">
+              <a href="/" className="text-white_ mb-2">
+                Início
+              </a>
+              <a href="/" className="text-white_ mb-2">
+                Restaurantes
+              </a>
+              <a href="/" className="text-white_ mb-2">
+                Serviços
+              </a>
+              <a href="/" className="text-white_ mb-2 text-nowrap">
+                Beach Tennis
+              </a>
+              <a href="/" className="text-white_ mb-1_">
+                Localização
+              </a>
+            </nav>
+          </div>
           <nav className="hidden md:block">
             <ul className="flex justify-between items-center py-4 gap-5">
               <li>
@@ -131,7 +169,7 @@ export default function Home() {
           </nav>
         </div>
       </header>
-      <div className="z-10 relative">
+      <div className="md:z-10 relative">
         <div className="max-w-[1024px] m-auto px-4 py-20_ text-right h-[50vh] md:h-[70vh] flex justify-end items-end">
           <div className="flex flex-col items-end">
             <p className="text-2xl uppercase mb-2.5 text-gray-600 bg-white inline-block">
@@ -194,20 +232,7 @@ export default function Home() {
       <div className="bg-theme-gray_">
         <div className="max-w-[1024px]  m-auto px-4 py-20">
           <h2 className="text-3xl text-center mb-10 text-white_ font-semibold text-gray-800">Nossos Restaurantes</h2>
-          <div className="flex gap-2 mb-5 items-center flex-wrap">
-            <p className="text-gray-500">Categorias</p>
-            {cats.map((c, i) => {
-              return (
-                <button
-                  key={i}
-                  className="text-white rounded p-1 text-[14px] cursor-pointer"
-                  style={{ backgroundColor: c.color }}
-                >
-                  {c.label}
-                </button>
-              );
-            })}
-          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
             <RestaurantCard
               image="/assets/sushi.jpg"
@@ -280,6 +305,47 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="bg-theme-dark-gray">
+        <div className="max-w-[1024px] m-auto px-4 py-20">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="text-center_ flex flex-col justify-center">
+              <p className="text-3xl mb-10 font-semibold text-white">Faça Seu Evento Conosco</p>
+
+              <p className="mb-4 text-white">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie leo placerat nisi convallis
+                lobortis.
+              </p>
+              <p className="mb-4 text-white">
+                Nunc eget velit id risus tincidunt facilisis. Suspendisse eget sodales purus, at luctus lacus. Nullam
+                elementum tortor a euismod varius.
+              </p>
+              <ul className="mb-4">
+                <li className="list-disc text-white ml-3">
+                  <p>Confraternização</p>
+                </li>
+                <li className="list-disc text-white ml-3">
+                  <p>Formatura</p>
+                </li>
+                <li className="list-disc text-white ml-3">
+                  <p>Aniversário</p>
+                </li>
+                <li className="list-disc text-white ml-3">
+                  <p>Evento Coorporativo</p>
+                </li>
+              </ul>
+              <a
+                href="/"
+                className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer"
+              >
+                Entrar em Contato
+              </a>
+            </div>
+            <div>
+              <Image layout="responsive" src={'/assets/event.jpg'} width={400} height={400} alt="banner" />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="max-w-[1024px] m-auto px-4 py-20">
         <div className="grid md:grid-cols-2 gap-4">
           <div>
@@ -291,7 +357,7 @@ export default function Home() {
             ></iframe>
           </div>
           <div className="text-center flex flex-col justify-center">
-            <p className="text-2xl mb-3 font-semibold text-gray-800">Localização</p>
+            <p className="text-2xl mb-3 mt-6 md:mt-0 font-semibold text-gray-800">Localização</p>
             <div className="mb-10">
               <p className="text-gray-600">R. Henrique Lizot, 5 - Mogi das Cruzes, SP</p>
               <p className="text-gray-600">Ao lado da estação Brás Cubas</p>
@@ -303,95 +369,46 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div className="max-w-[1024px] m-auto px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <p className="text-3xl mb-10 font-semibold text-gray-800">Faça Parte da Arena Chefz</p>
-            <p className="mb-4 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie leo placerat nisi convallis
-              lobortis.
-            </p>
-            <p className="mb-4 text-gray-600">
-              Sed sodales iaculis massa molestie lobortis. Aliquam sed consectetur risus. Nam non metus arcu.
-            </p>
-            <p className="mb-4 text-gray-600">
-              Nunc eget velit id risus tincidunt facilisis. Suspendisse eget sodales purus, at luctus lacus. Nullam
-              elementum tortor a euismod varius.
-            </p>
-          </div>
-          <form className="flex flex-wrap">
-            <input
-              className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
-              type="text"
-              placeholder="Nome"
-            />
-            <input
-              className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
-              type="text"
-              placeholder="E-mail"
-            />
-            <input
-              className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
-              type="text"
-              placeholder="Telefone"
-            />
-            <textarea
-              className="p-2 text-gray-600 border border-gray-300 rounded w-full mb-4"
-              placeholder="Mensagem"
-              rows={4}
-            />
-            <button className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer">
-              Enviar
-            </button>
-          </form>
-        </div>
-      </div>
       <footer className="bg-theme-gray w-full">
-        <div className="max-w-[1024px] pr-4 py-1 pl-4 flex items-center m-auto justify-between">
-          <h1 className="text-[0px]">
-            Arena Chefz
-            <Image width={120} height={120} alt="logo" src={'/assets/logo.png'} />
-          </h1>
-
-          <nav className="hidden md:block">
-            <ul className="flex justify-between items-center py-4 gap-5">
-              <li>
-                <a href="/" className="text-white">
-                  Início
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white">
-                  Restaurantes
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white">
-                  Serviços
-                </a>
-              </li>
-
-              <li>
-                <a href="/" className="text-white">
-                  Beach Tennis
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white">
-                  Localização
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="flex gap-5">
-            <a target="_blank" href="https://www.instagram.com/arenachefz/" className="text-[0px]">
-              Instagram
-              <Image width={30} height={30} alt="instagram" src={'/assets/instagram.png'} />
+        <div className="max-w-[1024px] pr-4 m-auto py-20 pl-4 md:flex justify-between">
+          <div className="mb-5 md:mb-0">
+            <p className="text-white font-semibold mb-3">Links</p>
+            <a href="/" className="text-white block mb-1">
+              Início
             </a>
-            <a href="/" className="text-[0px]">
+            <a href="/" className="text-white block mb-1">
+              Restaurantes
+            </a>
+            <a href="/" className="text-white block mb-1_">
+              Beach Tennis
+            </a>
+          </div>
+          <div className="flex flex-col text-right_ mb-5 md:mb-0">
+            <p className="text-white font-semibold mb-3">Endereço</p>
+            <p className="text-white mb-1">Rua Henrique Lizot, 5</p>
+            <p className="text-white mb-1">Mogi das Cruzes, SP</p>
+            <p className="text-white mb-1">Ao lado da estação Brás Cubas</p>
+          </div>
+          <div className="flex flex-col text-right_ mb-5 md:mb-0">
+            <p className="text-white font-semibold mb-3">Horário</p>
+            <p className="text-white mb-1">Segunda a Sexta: 10:00 - 22:00</p>
+            <p className="text-white mb-1">Sábado: 10:00 - 00:00</p>
+            <p className="text-white mb-1">Domingo: 10:00 - 22:00</p>
+          </div>
+          <div className="flex flex-col text-right_">
+            <p className="text-white font-semibold mb-3">Contato</p>
+            <a target="_blank" href="https://www.instagram.com/arenachefz/" className="text-white mb-1">
+              Instagram
+            </a>
+            <a href="/" className="text-white mb-1">
               Whatsapp
-              <Image width={30} height={30} alt="whatsapp" src={'/assets/whatsapp.png'} />
+            </a>
+
+            <a href="/" className="text-white mb-1">
+              (11) 99999-9999
+            </a>
+            <a href="/" className="text-white mb-1">
+              arenachefz@gmail.com
             </a>
           </div>
         </div>

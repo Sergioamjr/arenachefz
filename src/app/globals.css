@@ -3,6 +3,7 @@
 @theme {
   --color-theme-gray: #2f333f;
   --color-theme-red: #cb2a38;
+  --color-theme-dark-gray: #2f333f;
 }
 
 .banner {
@@ -27,7 +28,7 @@
 }
 
 .hero {
-  position: relative;
+  position: absolute;
 }
 
 .hero > * {
@@ -41,7 +42,9 @@
   position: absolute;
   width: 910px;
   background: #2f333f;
-  right: 49vw;
+  /* right: 49vw; */
+  /* right: 20vw; */
+  right: -70vw;
   top: -120px;
   border-radius: 50px;
   transform: rotate(40deg);
@@ -51,9 +54,18 @@
   background-position: 90% 20%;
 }
 
+@media screen and (min-width: 768px) {
+  .hero:after {
+    right: -40vw;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .hero:after {
-    top: -70px;
-    background-position: 70% 40%;
+    right: -50vw;
   }
+}
+
+body {
+  overflow-x: hidden;
 }
