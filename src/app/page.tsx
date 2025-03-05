@@ -5,6 +5,35 @@ import cx from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
+const homeId = 'inicio';
+const restaurantId = 'restaurantes';
+const beachTennisId = 'esportes-de-areia';
+const eventsId = 'eventos';
+const locationId = 'localizacao';
+
+const links = [
+  {
+    label: 'Início',
+    href: `#${homeId}`,
+  },
+  {
+    label: 'Restaurantes',
+    href: `#${restaurantId}`,
+  },
+  {
+    label: 'Esportes de Areia',
+    href: `#${beachTennisId}`,
+  },
+  {
+    label: 'Faça seu evento',
+    href: `#${eventsId}`,
+  },
+  {
+    label: 'Localização',
+    href: `#${locationId}`,
+  },
+];
+
 // const Form = () => {
 //   return (
 //     <form className="flex flex-wrap">
@@ -120,51 +149,26 @@ export default function Home() {
               <Image width={30} height={30} alt="menu" src={isOpen ? '/assets/close.png' : '/assets/menu.png'} />
             </button>
             <nav className="flex right-0 flex-col absolute text-right bg-white z-20 p-2">
-              <a href="/" className="text-white_ mb-2">
-                Início
-              </a>
-              <a href="/" className="text-white_ mb-2">
-                Restaurantes
-              </a>
-              <a href="/" className="text-white_ mb-2">
-                Serviços
-              </a>
-              <a href="/" className="text-white_ mb-2 text-nowrap">
-                Beach Tennis
-              </a>
-              <a href="/" className="text-white_ mb-1_">
-                Localização
-              </a>
+              {links.map((link) => {
+                return (
+                  <a key={link.href} href={link.href} className="text-white_ mb-2">
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
           </div>
           <nav className="hidden md:block">
             <ul className="flex justify-between items-center py-4 gap-5">
-              <li>
-                <a href="/" className="text-white_">
-                  Início
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white_">
-                  Restaurantes
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white_">
-                  Serviços
-                </a>
-              </li>
-
-              <li>
-                <a href="/" className="text-white_">
-                  Beach Tennis
-                </a>
-              </li>
-              <li>
-                <a href="/" className="text-white_">
-                  Localização
-                </a>
-              </li>
+              {links.map((link) => {
+                return (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-white_">
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
@@ -181,12 +185,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <div className="relative banner h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[800px] overflow-hidden">
-        <div className="max-w-[1024px] m-auto px-4 py-20 flex items-end_ h-full flex-col justify-end z-10 relative">
-          <h3 className="text-white mb-2.5 text-4xl">Espaço Arena Chefz</h3>
-          <p className="text-white">Esporte, comida, cultura, lazer; em um só lugar</p>
-        </div>
-      </div> */}
       <div className="max-w-[1024px] m-auto px-4 py-20">
         <div className="grid md:grid-cols-2 gap-4 mb-20_">
           <SummaryCard
@@ -200,13 +198,13 @@ export default function Home() {
               <SummaryCard
                 background="/assets/beachplayer.jpg"
                 subtitle="Pratique esporte"
-                title="Beach Tennis"
+                title="Esportes de Areia"
                 className="h-[200px] md:h-full"
               />
               <SummaryCard
                 background="/assets/concert.jpg"
                 subtitle="Veja seus artistas favoritos"
-                title="Cultura"
+                title="Eventos"
                 className="h-[200px] md:h-full"
               />
             </div>
@@ -229,7 +227,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-theme-gray_">
+      <div className="bg-theme-gray_" id={restaurantId}>
         <div className="max-w-[1024px]  m-auto px-4 py-20">
           <h2 className="text-3xl text-center mb-10 text-white_ font-semibold text-gray-800">Nossos Restaurantes</h2>
 
@@ -273,11 +271,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-100 curve">
+      <div className="bg-gray-100 curve" id={beachTennisId}>
         <div className="max-w-[1024px] m-auto px-4 py-20">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="text-center_ flex flex-col justify-center">
-              <p className="text-2xl mb-3 font-semibold text-gray-800">Beach Tennis</p>
+              <p className="text-2xl mb-3 font-semibold text-gray-800">Esportes de Areia</p>
               <div className="mb-10">
                 <p className="mb-2.5 text-gray-600">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
@@ -288,11 +286,25 @@ export default function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
                   viverra sed. Proin sollicitudin metus purus.
                 </p>
-
+                <ul className="mb-4">
+                  <li className="list-disc text-gray-600 ml-3">
+                    <p>Beach Tennis</p>
+                  </li>
+                  <li className="list-disc text-gray-600 ml-3">
+                    <p>Futevôlei</p>
+                  </li>
+                  <li className="list-disc text-gray-600 ml-3">
+                    <p>Volei de Praia</p>
+                  </li>
+                  <li className="list-disc text-gray-600 ml-3">
+                    <p>Futebol de Praia</p>
+                  </li>
+                </ul>
                 <p className="mb-2.5 text-gray-600">
                   Mauris luctus lorem eleifend aliquam pulvinar. Suspendisse accumsan pellentesque ex, ut auctor elit
                   aliquam sed. Nunc a ante vitae sem tristique tincidunt.
                 </p>
+
                 <button className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer">
                   Agendar Aula
                 </button>
@@ -305,7 +317,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-theme-dark-gray">
+      <div className="bg-theme-dark-gray" id={eventsId}>
         <div className="max-w-[1024px] m-auto px-4 py-20">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="text-center_ flex flex-col justify-center">
@@ -346,7 +358,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1024px] m-auto px-4 py-20">
+      <div className="max-w-[1024px] m-auto px-4 py-20" id={locationId}>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <iframe
@@ -373,15 +385,13 @@ export default function Home() {
         <div className="max-w-[1024px] pr-4 m-auto py-20 pl-4 md:flex justify-between">
           <div className="mb-5 md:mb-0">
             <p className="text-white font-semibold mb-3">Links</p>
-            <a href="/" className="text-white block mb-1">
-              Início
-            </a>
-            <a href="/" className="text-white block mb-1">
-              Restaurantes
-            </a>
-            <a href="/" className="text-white block mb-1_">
-              Beach Tennis
-            </a>
+            {links.map((link) => {
+              return (
+                <a key={link.label} href={link.href} className="text-white block mb-1">
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
           <div className="flex flex-col text-right_ mb-5 md:mb-0">
             <p className="text-white font-semibold mb-3">Endereço</p>

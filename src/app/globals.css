@@ -42,30 +42,33 @@
   position: absolute;
   width: 910px;
   background: #2f333f;
-  /* right: 49vw; */
-  /* right: 20vw; */
-  right: -70vw;
-  top: -120px;
+  right: -40vw;
+  top: -210px;
   border-radius: 50px;
   transform: rotate(40deg);
   background-image: url('/assets/poke.png');
   background-size: 60%;
   background-repeat: no-repeat;
-  background-position: 90% 20%;
+  background-position: 130% 20%;
 }
 
 @media screen and (min-width: 768px) {
   .hero:after {
+    background-position: 90% 20%;
     right: -40vw;
+    top: -120px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .hero:after {
-    right: -50vw;
+    background-size: 65%;
+    background-position: 90% 40%;
+    right: -40vw;
   }
 }
 
+html,
 body {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
