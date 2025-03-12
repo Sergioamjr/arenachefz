@@ -316,6 +316,38 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="bg-gray-100_ curve" id={beachTennisId}>
+        <div className="max-w-[1024px] m-auto px-4 py-20">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <Image layout="responsive" width={400} height={400} src="/assets/pug.jpg" alt="banner" />
+            </div>
+            <div className="text-center_ flex flex-col justify-center">
+              <p className="text-2xl mb-3 font-semibold text-gray-800">Boteco</p>
+              <div className="mb-10">
+                <p className="mb-2.5 text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
+                  viverra sed. Proin sollicitudin metus purus.
+                </p>
+
+                <p className="mb-2.5 text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue mauris neque, nec molestie odio
+                  viverra sed. Proin sollicitudin metus purus.
+                </p>
+
+                <p className="mb-2.5 text-gray-600">
+                  Mauris luctus lorem eleifend aliquam pulvinar. Suspendisse accumsan pellentesque ex, ut auctor elit
+                  aliquam sed. Nunc a ante vitae sem tristique tincidunt.
+                </p>
+
+                <button className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer">
+                  Entrar em contato
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="bg-theme-dark-gray" id={eventsId}>
         <div className="max-w-[1024px] m-auto px-4 py-20">
