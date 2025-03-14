@@ -1,4 +1,12 @@
-import Home from './../components/Home';
+// import dynamic from 'next/dynamic';
+
+// import Home from './../components/Home';
+
+import dynamicc from 'next/dynamic';
+
+export const dynamic = 'force-dynamic';
+
+const Home = dynamicc(() => import('./../components/Home'), { ssr: !!false });
 
 export default async function Page() {
   const prop = 'https://arenachefz.vercel.app/api';
