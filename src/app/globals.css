@@ -72,3 +72,30 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+/* Rich Text */
+
+.rich-text b {
+  display: block;
+}
+
+.rich-text ul {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+
+.rich-text li {
+  list-style-type: disc;
+  margin-left: calc(var(--spacing) * 3);
+}
+
+.rich-text li p {
+  margin-bottom: 0;
+}
+
+.rich-text :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: calc(var(--spacing) * 10);
+}
+
+.rich-text :is(h1, h2, h3, h4, h5, h6):first-of-type {
+  margin-top: 0;
+}
