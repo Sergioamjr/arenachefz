@@ -24,9 +24,10 @@ const esportesDeAreiaId = '1eg4IKOAGLDOB6USnArV6k';
 const facaSeueventoId = '2W8cOiSTeC4TtXjf4nEcr0';
 const happyHourId = '1RAH1iRibWl2ZgiGLSlIsw';
 const menuId = 'menu';
-// const seoId = '';
+const seoId = '3DXjuQY4Kg6UhmJgN8n870';
 const bannerId = '8euEn6bJxevGVSW7xGIUx';
 const localizacaoId = 'BH6npEHGf9GZdEaTpF1pm';
+const rodapeId = '7t3eBhl5CjwCp0xM7BXuXh';
 
 export async function GET() {
   // const response = await client.getEntry('8euEn6bJxevGVSW7xGIUx');
@@ -34,8 +35,10 @@ export async function GET() {
     [destaquesId, comodidadesId, restaurantesId, menuId].map((item) => client.getEntries({ content_type: item }))
   );
 
-  const [esportesDeAreia, facaSeuEvento, happyHour, localizacao, banner] = await Promise.all(
-    [esportesDeAreiaId, facaSeueventoId, happyHourId, localizacaoId, bannerId].map((item) => client.getEntry(item))
+  const [esportesDeAreia, facaSeuEvento, happyHour, localizacao, banner, seo, rodape] = await Promise.all(
+    [esportesDeAreiaId, facaSeueventoId, happyHourId, localizacaoId, bannerId, seoId, rodapeId].map((item) =>
+      client.getEntry(item)
+    )
   );
 
   return NextResponse.json(
@@ -49,6 +52,8 @@ export async function GET() {
       happyHour: getFields(happyHour),
       banner: getFields(banner),
       localizacao: getFields(localizacao),
+      seo: getFields(seo),
+      rodape: getFields(rodape),
     },
     { status: 200 }
   );

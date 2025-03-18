@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import cx from 'classnames';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Icon } from './Icon';
 import { RestaurantCard } from './RestaurantCard';
@@ -54,8 +54,16 @@ const getIds = (menu: any) => {
 };
 
 export default function Home(props: any) {
+  console.log(props);
   const [isOpen, setisOpen] = useState(false);
   const { happyHourId, inicioId, restaurantId, beachTennisId, eventsId, locationId } = getIds(props.menu);
+
+  useEffect(() => {
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach((link) => {
+      link.setAttribute('target', '_blank');
+    });
+  }, []);
   return (
     <>
       <div className="hero" />
@@ -166,6 +174,7 @@ export default function Home(props: any) {
             {props?.restaurantes?.map((restaurante: any) => {
               return (
                 <RestaurantCard
+                  linkDoCardpio={restaurante?.linkDoCardpio}
                   key={restaurante.id}
                   image={getImageUrl(restaurante?.imagem)}
                   title={restaurante?.nome}
@@ -270,31 +279,30 @@ export default function Home(props: any) {
           </div>
           <div className="flex flex-col text-right_ mb-5 md:mb-0">
             <p className="text-white font-semibold mb-3">Endereço</p>
-            <p className="text-white mb-1">Rua Henrique Lizot, 5</p>
-            <p className="text-white mb-1">Mogi das Cruzes, SP</p>
-            <p className="text-white mb-1">Ao lado da estação Brás Cubas</p>
+            <RichText
+              content={props?.rodape?.endereco}
+              classes={{
+                p: 'text-white mb-1',
+              }}
+            />
           </div>
           <div className="flex flex-col text-right_ mb-5 md:mb-0">
             <p className="text-white font-semibold mb-3">Horário</p>
-            <p className="text-white mb-1">Segunda a Sexta: 10:00 - 22:00</p>
-            <p className="text-white mb-1">Sábado: 10:00 - 00:00</p>
-            <p className="text-white mb-1">Domingo: 10:00 - 22:00</p>
+            <RichText
+              content={props?.rodape?.horario}
+              classes={{
+                p: 'text-white mb-1',
+              }}
+            />
           </div>
           <div className="flex flex-col text-right_">
             <p className="text-white font-semibold mb-3">Contato</p>
-            <a target="_blank" href="https://www.instagram.com/arenachefz/" className="text-white mb-1">
-              Instagram
-            </a>
-            <a href="/" className="text-white mb-1">
-              Whatsapp
-            </a>
-
-            <a href="/" className="text-white mb-1">
-              (11) 99999-9999
-            </a>
-            <a href="/" className="text-white mb-1">
-              arenachefz@gmail.com
-            </a>
+            <RichText
+              content={props?.rodape?.contato}
+              classes={{
+                p: 'text-white mb-1',
+              }}
+            />
           </div>
         </div>
       </footer>
