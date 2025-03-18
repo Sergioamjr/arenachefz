@@ -57,6 +57,10 @@ export default function Home(props: any) {
   console.log(props);
   const [isOpen, setisOpen] = useState(false);
   const { happyHourId, inicioId, restaurantId, beachTennisId, eventsId, locationId } = getIds(props.menu);
+  const linksReordered = [inicioId, restaurantId, beachTennisId, happyHourId, eventsId, locationId];
+  const newMenu = (props?.menu ?? []).sort((a: any, b: any) => {
+    return linksReordered.indexOf(a.id) - linksReordered.indexOf(b.id);
+  });
 
   useEffect(() => {
     const allLinks = document.querySelectorAll('a');
@@ -88,7 +92,7 @@ export default function Home(props: any) {
               <Image width={30} height={30} alt="menu" src={isOpen ? '/assets/close.png' : '/assets/menu.png'} />
             </button>
             <nav className="flex right-0 flex-col absolute text-right bg-white z-20 p-2">
-              {props.menu.reverse().map((link: any) => {
+              {newMenu.map((link: any) => {
                 return (
                   <a key={link.id} href={`#${link.id}`} className="text-white_ mb-2">
                     {link.label}
@@ -99,7 +103,7 @@ export default function Home(props: any) {
           </div>
           <nav className="hidden md:block">
             <ul className="flex justify-between items-center py-4 gap-5">
-              {props.menu.reverse().map((link: any) => {
+              {newMenu.map((link: any) => {
                 return (
                   <li key={link.id}>
                     <a href={`#${link.id}`} className="text-white_">
@@ -269,7 +273,7 @@ export default function Home(props: any) {
         <div className="max-w-[1024px] pr-4 m-auto py-20 pl-4 md:flex justify-between">
           <div className="mb-5 md:mb-0">
             <p className="text-white font-semibold mb-3">Links</p>
-            {props.menu.reverse().map((link: any) => {
+            {newMenu.map((link: any) => {
               return (
                 <a key={link.id} href={`#${link.id}`} className="text-white block mb-1">
                   {link.label}
