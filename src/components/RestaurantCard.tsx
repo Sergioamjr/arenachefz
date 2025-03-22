@@ -1,5 +1,6 @@
 'use client';
 
+import cx from 'classnames';
 import Image from 'next/image';
 import { useMemo } from 'react';
 
@@ -29,11 +30,13 @@ export const RestaurantCard = ({
     <div className="flex flex-col overflow-hidden rounded-2xl_ shadow-[2px_2px_5px_#bdbdbd]">
       <Image layout="responsive" className="rounded-2xl_" width={400} height={100} src={image} alt="banner" />
       <div className="p-3 w-full">
-        <div className="mb-4 flex justify-between items-center">
-          <p className="mt-1 text-2xl font-semibold text-left ">{title}</p>
-          <a target="_blank" href={instagram} className="mt-1 text-left">
-            @{pathName}
-          </a>
+        <div className={cx('mb-4 flex justify-between items-center', { ['justify-center']: !pathName })}>
+          <p className={cx('mt-1 text-2xl font-semibold text-left')}>{title}</p>
+          {pathName && (
+            <a target="_blank" href={instagram} className="mt-1 text-left">
+              @{pathName}
+            </a>
+          )}
         </div>
 
         {linkDoCardpio && (
