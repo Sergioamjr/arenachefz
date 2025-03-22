@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useMemo } from 'react';
 
 export const RestaurantCard = ({
   image,
@@ -14,8 +15,16 @@ export const RestaurantCard = ({
   linkDoCardpio?: string;
   instagram: string;
 }) => {
-  const link = new URL(instagram);
-  const pathName = link.pathname.replace(/\//g, '');
+  const pathName = useMemo(() => {
+    let path = '';
+    try {
+      const link = new URL(instagram);
+      path = link.pathname.replace(/\//g, '');
+    } catch {}
+
+    return path;
+  }, [instagram]);
+
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl_ shadow-[2px_2px_5px_#bdbdbd]">
       <Image layout="responsive" className="rounded-2xl_" width={400} height={100} src={image} alt="banner" />

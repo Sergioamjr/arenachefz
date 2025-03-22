@@ -172,7 +172,7 @@ export default function Home(props: any) {
       </div>
       <div className="bg-theme-gray_" id={restaurantId}>
         <div className="max-w-[1024px]  m-auto px-4 py-20">
-          <h2 className="text-3xl text-center mb-10 text-white_ font-semibold text-gray-800">Nossos Restaurantes</h2>
+          <h2 className="text-3xl text-center mb-10 text-white_ font-semibold text-gray-800">Gastronomia</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
             {props?.restaurantes?.map((restaurante: any) => {
