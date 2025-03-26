@@ -11,10 +11,11 @@ import { RichText } from './RichText';
 import { SummaryCard } from './SummaryCard';
 
 const WhatsAppButton = ({ whatsapp, descrioDoBoto }: any) => {
+  const isAlink = whatsapp?.includes('http');
   return (
     <a
       target="_blank"
-      href={`https://wa.me/55${whatsapp}`}
+      href={isAlink ? whatsapp : `https://wa.me/55${whatsapp}`}
       className="w-full block text-center p-2 shadow rounded_ bg-cyan-800_ border border-cyan-800 bg-cyan-800 text-white cursor-pointer"
     >
       {descrioDoBoto}
