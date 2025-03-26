@@ -7,6 +7,7 @@ export const dynamic = 'force-dynamic';
 const Home = dynamicc(() => import('./../components/Home'), { ssr: !!false });
 
 const getImageUrl = (imagem: any) => {
+  console.log('imgg>>', imagem);
   const url = imagem?.fields?.file?.url;
   const baseUrl = 'https:';
 
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: toJson.seo.ttulo,
     description: toJson.seo.descrio,
     openGraph: {
-      images: getImageUrl(toJson?.seo?.image),
+      images: getImageUrl(toJson.seo.imagem),
     },
   };
 }
